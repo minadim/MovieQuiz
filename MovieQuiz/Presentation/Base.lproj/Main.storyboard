@@ -26,11 +26,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OEX-pf-VQ6">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OEX-pf-VQ6">
                                 <rect key="frame" x="20" y="58" width="374" height="804"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" spacing="242" translatesAutoresizingMaskIntoConstraints="NO" id="DWb-TT-3ef">
-                                        <rect key="frame" x="0.0" y="0.0" width="358.5" height="23.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" spacing="222" translatesAutoresizingMaskIntoConstraints="NO" id="DWb-TT-3ef">
+                                        <rect key="frame" x="18" y="0.0" width="338.5" height="23.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Px8-8U-cZi" userLabel="Question Title Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="76" height="23.5"/>
@@ -39,8 +39,8 @@
                                                 <color key="textColor" name="YP White"/>
                                                 <color key="highlightedColor" name="YP White"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="37" translatesAutoresizingMaskIntoConstraints="NO" id="KsK-Kc-yNz" userLabel="Index Label">
-                                                <rect key="frame" x="318" y="0.0" width="40.5" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="500" translatesAutoresizingMaskIntoConstraints="NO" id="KsK-Kc-yNz" userLabel="Index Label">
+                                                <rect key="frame" x="298" y="0.0" width="40.5" height="23.5"/>
                                                 <color key="tintColor" name="YP White"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <color key="textColor" name="YP White"/>
@@ -49,15 +49,16 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qTH-l5-WYH" userLabel="Preview Image">
-                                        <rect key="frame" x="0.0" y="43.5" width="374" height="561"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="The Godfather" highlightedImage="The Godfather" id="qTH-l5-WYH" userLabel="Preview Image">
+                                        <rect key="frame" x="0.0" y="43.5" width="374" height="573"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" name="YP White"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qTH-l5-WYH" secondAttribute="height" multiplier="2:3" id="dq0-Se-qp0"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="87.5" text="Рейтинг этого фильма меньше, чем 5?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3l-wj-nqa" userLabel="Question Label">
-                                        <rect key="frame" x="0.0" y="624.5" width="374" height="99.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="87.5" text="Рейтинг этого фильма меньше, чем 5?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3l-wj-nqa" userLabel="Question Label">
+                                        <rect key="frame" x="0.0" y="636.5" width="374" height="87.5"/>
                                         <color key="tintColor" name="YP White"/>
                                         <fontDescription key="fontDescription" name="YSDisplay-Bold" family="YS Display" pointSize="23"/>
                                         <color key="textColor" name="YP White"/>
@@ -113,14 +114,14 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="Ums-8V-WZY"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OEX-pf-VQ6" secondAttribute="bottom" id="28Z-yK-5Od"/>
-                            <constraint firstItem="OEX-pf-VQ6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GhG-cC-WMD"/>
-                            <constraint firstItem="OEX-pf-VQ6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="PSe-f5-1ql"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OEX-pf-VQ6" secondAttribute="trailing" constant="20" id="UG8-oH-ESd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GT4-T0-j0B" secondAttribute="trailing" constant="20" id="iaP-fj-E5a"/>
+                            <constraint firstItem="Ums-8V-WZY" firstAttribute="bottom" secondItem="OEX-pf-VQ6" secondAttribute="bottom" id="28Z-yK-5Od"/>
+                            <constraint firstItem="OEX-pf-VQ6" firstAttribute="leading" secondItem="Ums-8V-WZY" secondAttribute="leading" constant="20" id="GhG-cC-WMD"/>
+                            <constraint firstItem="OEX-pf-VQ6" firstAttribute="top" secondItem="Ums-8V-WZY" secondAttribute="top" constant="10" id="PSe-f5-1ql"/>
+                            <constraint firstItem="Ums-8V-WZY" firstAttribute="trailing" secondItem="OEX-pf-VQ6" secondAttribute="trailing" constant="20" id="UG8-oH-ESd"/>
+                            <constraint firstItem="Ums-8V-WZY" firstAttribute="trailing" secondItem="GT4-T0-j0B" secondAttribute="trailing" constant="20" id="iaP-fj-E5a"/>
                         </constraints>
                     </view>
                     <connections>
@@ -135,6 +136,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="The Godfather" width="1192" height="1716"/>
         <namedColor name="YP Black">
             <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
