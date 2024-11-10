@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "1 (375x812).svg",
+      "filename" : "Win.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Lose.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
