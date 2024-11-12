@@ -7,6 +7,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -30,17 +31,17 @@
                                 <rect key="frame" x="20" y="58" width="374" height="804"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" spacing="222" translatesAutoresizingMaskIntoConstraints="NO" id="DWb-TT-3ef">
-                                        <rect key="frame" x="18" y="0.0" width="338.5" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="23.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Px8-8U-cZi" userLabel="Question Title Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="76" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="116" height="23.5"/>
                                                 <color key="tintColor" name="YP White"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <color key="textColor" name="YP White"/>
                                                 <color key="highlightedColor" name="YP White"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="500" translatesAutoresizingMaskIntoConstraints="NO" id="KsK-Kc-yNz" userLabel="Index Label">
-                                                <rect key="frame" x="298" y="0.0" width="40.5" height="23.5"/>
+                                                <rect key="frame" x="338" y="0.0" width="36" height="23.5"/>
                                                 <color key="tintColor" name="YP White"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <color key="textColor" name="YP White"/>
@@ -49,16 +50,44 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="The Godfather" highlightedImage="The Godfather" id="qTH-l5-WYH" userLabel="Preview Image">
-                                        <rect key="frame" x="0.0" y="43.5" width="374" height="573"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" name="YP White"/>
+                                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0L-DP-W1P">
+                                        <rect key="frame" x="0.0" y="43.5" width="374" height="561"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="The Godfather" highlightedImage="The Godfather" translatesAutoresizingMaskIntoConstraints="NO" id="qTH-l5-WYH" userLabel="Preview Image">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="561"/>
+                                                <color key="backgroundColor" name="YP White"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="qTH-l5-WYH" secondAttribute="height" multiplier="2:3" id="dq0-Se-qp0"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="qTH-l5-WYH" secondAttribute="height" multiplier="2:3" id="dq0-Se-qp0"/>
+                                            <constraint firstAttribute="trailing" secondItem="qTH-l5-WYH" secondAttribute="trailing" id="04K-mF-352"/>
+                                            <constraint firstAttribute="bottom" secondItem="qTH-l5-WYH" secondAttribute="bottom" id="1ud-2X-q1q"/>
+                                            <constraint firstItem="qTH-l5-WYH" firstAttribute="top" secondItem="c0L-DP-W1P" secondAttribute="top" id="CQf-iu-8WN"/>
+                                            <constraint firstItem="qTH-l5-WYH" firstAttribute="leading" secondItem="c0L-DP-W1P" secondAttribute="leading" id="VfO-ya-uVi"/>
                                         </constraints>
-                                    </imageView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="87.5" text="Рейтинг этого фильма меньше, чем 5?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3l-wj-nqa" userLabel="Question Label">
-                                        <rect key="frame" x="0.0" y="636.5" width="374" height="87.5"/>
+                                        <rect key="frame" x="0.0" y="624.5" width="374" height="99.5"/>
                                         <color key="tintColor" name="YP White"/>
                                         <fontDescription key="fontDescription" name="YSDisplay-Bold" family="YS Display" pointSize="23"/>
                                         <color key="textColor" name="YP White"/>
@@ -120,6 +149,7 @@
                             <constraint firstItem="Ums-8V-WZY" firstAttribute="bottom" secondItem="OEX-pf-VQ6" secondAttribute="bottom" id="28Z-yK-5Od"/>
                             <constraint firstItem="OEX-pf-VQ6" firstAttribute="leading" secondItem="Ums-8V-WZY" secondAttribute="leading" constant="20" id="GhG-cC-WMD"/>
                             <constraint firstItem="OEX-pf-VQ6" firstAttribute="top" secondItem="Ums-8V-WZY" secondAttribute="top" constant="10" id="PSe-f5-1ql"/>
+                            <constraint firstItem="DWb-TT-3ef" firstAttribute="leading" secondItem="Ums-8V-WZY" secondAttribute="leading" constant="20" id="Rgi-ro-KaH"/>
                             <constraint firstItem="Ums-8V-WZY" firstAttribute="trailing" secondItem="OEX-pf-VQ6" secondAttribute="trailing" constant="20" id="UG8-oH-ESd"/>
                             <constraint firstItem="Ums-8V-WZY" firstAttribute="trailing" secondItem="GT4-T0-j0B" secondAttribute="trailing" constant="20" id="iaP-fj-E5a"/>
                         </constraints>
@@ -127,7 +157,9 @@
                     <connections>
                         <outlet property="counterLabel" destination="KsK-Kc-yNz" id="wkQ-Ph-91f"/>
                         <outlet property="imageView" destination="qTH-l5-WYH" id="Uzv-lr-ENo"/>
+                        <outlet property="noButton" destination="Ra7-cf-nUs" id="POS-Bm-ACJ"/>
                         <outlet property="textLabel" destination="V3l-wj-nqa" id="Sn7-Kv-Mio"/>
+                        <outlet property="yesButton" destination="yP2-E9-Vry" id="QYy-yM-r14"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -143,5 +175,8 @@
         <namedColor name="YP White">
             <color red="0.99607843137254903" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
