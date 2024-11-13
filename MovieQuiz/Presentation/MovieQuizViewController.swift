@@ -16,7 +16,7 @@ final class MovieQuizViewController: UIViewController {
         // Настройка начальных свойств рамки
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 8
-        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.borderColor = UIColor.clear.cgColor
         
     }
     @IBAction private func yesButtonClicked(_ sender: UIButton) {
@@ -111,10 +111,8 @@ final class MovieQuizViewController: UIViewController {
     }
     
     private func handleAnswer(isYes: Bool) {
+        changeButtonState(isEnabled: false)
         let isCorrect = (isYes == questions[currentQuestionIndex].correctAnswer)
-        yesButton.isEnabled = false
-        noButton.isEnabled = false
-        
         showAnswerResult(isCorrect: isCorrect)
     }
     private func showAnswerResult(isCorrect: Bool) {
@@ -128,9 +126,7 @@ final class MovieQuizViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.hideBorder()
             self.showNextQuestionOrResults()
-            
-            self.yesButton.isEnabled = true
-            self.noButton.isEnabled = true
+            self.changeButtonState(isEnabled: true)
         }
     }
     private func hideBorder() {
@@ -146,7 +142,7 @@ final class MovieQuizViewController: UIViewController {
             let nextQuestion = questions[currentQuestionIndex]
             let viewModel = convert(model: nextQuestion)
             
-            show(_: viewModel)
+            show(viewModel)
         }
     }
     private func showResults() {
@@ -176,6 +172,10 @@ final class MovieQuizViewController: UIViewController {
         
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+    }
+    private func changeButtonState(isEnabled: Bool) {
+        yesButton.isEnabled = isEnabled
+        noButton.isEnabled = isEnabled
     }
 }
 
