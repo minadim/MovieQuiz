@@ -11,4 +11,5 @@ import UIKit
     let title: String
     let text: String
     let buttonText: String
+    let date: Date
 }
