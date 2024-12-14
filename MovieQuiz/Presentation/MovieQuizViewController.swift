@@ -2,7 +2,6 @@ import UIKit
 
 final class MovieQuizViewController: UIViewController,  QuestionFactoryDelegate {
     
-    // подключить элементы интерфейса к коду
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var textLabel: UILabel!
     @IBOutlet private var counterLabel: UILabel!
@@ -10,41 +9,31 @@ final class MovieQuizViewController: UIViewController,  QuestionFactoryDelegate 
     @IBOutlet private var noButton: UIButton!
     
     private let statisticService: StatisticServiceProtocol = StatisticService()
-    private let resultAlertPresenter = ResultAlertPresenter() // Создание экземпляра
+    private let resultAlertPresenter = ResultAlertPresenter()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        // Отложенная инициализация фабрики
         let questionFactory = QuestionFactory()
         questionFactory.setup(delegate: self)
         self.questionFactory = questionFactory
         
-        
-        // Настройка начальных свойств рамки
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = UIColor.clear.cgColor
         
-        
-        // сохранения текущей даты
         UserDefaults.standard.set(Date(), forKey: "bestGame.date")
         
-        
         questionFactory.requestNextQuestion()
-        
     }
     
     @IBAction private func yesButtonClicked(_ sender: UIButton) {
         handleAnswer(isYes: true)
-        
     }
     
     @IBAction private func noButtonClicked(_ sender: UIButton) {
         handleAnswer(isYes: false)
-        
     }
     
     private var currentQuestionIndex = 0
@@ -115,28 +104,24 @@ final class MovieQuizViewController: UIViewController,  QuestionFactoryDelegate 
             
         }
     }
-    
     private func showResults() {
         statisticService.store(correct: correctAnswers, total: questionsAmount)
-
-        // Создание и настройка DateFormatter
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy" // Устанавливаем нужный формат даты
-        let formattedDate = dateFormatter.string(from: Date()) // Форматируем текущую дату
-
-        // Создание ViewModel с отформатированной датой
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let formattedDate = dateFormatter.string(from: Date())
+        
         let resultViewModel = QuizResultsViewModel(
             title: "Результаты",
             text: "Вы правильно ответили на \(correctAnswers) из \(questionsAmount) вопросов!\n" +
-                  "Количество завершённых игр: \(statisticService.gamesCount)\n" +
-                  "Лучший результат: \(statisticService.bestGame.correct)/\(statisticService.bestGame.total)\n" +
-                  "Средняя точность: \(totalAccuracy)%\n" +
-                  "Дата: \(formattedDate)",
+            "Количество завершённых игр: \(statisticService.gamesCount)\n" +
+            "Лучший результат: \(statisticService.bestGame.correct)/\(statisticService.bestGame.total)\n" +
+            "Средняя точность: \(totalAccuracy)%\n" +
+            "Дата: \(formattedDate)",
             buttonText: "Сыграть ещё раз",
             date: Date()
         )
-
-        // Отображение результата через алерт
+        
         resultAlertPresenter.showResultAlert(
             title: resultViewModel.title,
             message: resultViewModel.text,
@@ -146,7 +131,7 @@ final class MovieQuizViewController: UIViewController,  QuestionFactoryDelegate 
             self?.resetQuiz()
         }
     }
-
+    
     private func show(quiz result: QuizResultsViewModel) {
         let alert = UIAlertController(
             title: result.title,
@@ -163,11 +148,11 @@ final class MovieQuizViewController: UIViewController,  QuestionFactoryDelegate 
     }
     
     private func resetQuiz() {
-            currentQuestionIndex = 0
-            correctAnswers = 0
-            hideBorder()
+        currentQuestionIndex = 0
+        correctAnswers = 0
+        hideBorder()
         showFirstQuestion()
-        }
+    }
     
     private func changeButtonState(isEnabled: Bool) {
         yesButton.isEnabled = isEnabled
@@ -180,7 +165,6 @@ final class MovieQuizViewController: UIViewController,  QuestionFactoryDelegate 
         guard let question = question else {
             return
         }
-        
         currentQuestion = question
         let viewModel = convert(model: question)
         DispatchQueue.main.async { [weak self] in

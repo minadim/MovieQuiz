@@ -7,7 +7,6 @@
 
 import Foundation
 
-// Абстракция для работы с статистикой
 protocol StatisticServiceProtocol {
     var gamesCount: Int { get }
     var bestGame: GameResult { get }
