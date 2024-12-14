@@ -8,8 +8,8 @@
 import Foundation
 
 struct AlertModel {
-    var title: String          // Заголовок алерта
-    var message: String        // Сообщение в алерте
-    var buttonTitle: String    // Текст кнопки
-    var completion: () -> Void // Замыкание для действия по кнопке алерта
+    var title: String
+    var message: String
+    var buttonTitle: String
+    var completion: () -> Void
 }
