@@ -1,10 +1,3 @@
-//
-//  StatisticService.swift
-//  MovieQuiz
-//
-//  Created by Nadin on 11.12.2024.
-//
-
 import UIKit
 
 final class StatisticService: StatisticServiceProtocol {
@@ -13,6 +6,8 @@ final class StatisticService: StatisticServiceProtocol {
     
     private enum Keys: String {
         case gamesCount
+        case totalCorrect
+        case totalQuestions
         case bestGame_correct
         case bestGame_total
         case bestGame_date
@@ -25,6 +20,24 @@ final class StatisticService: StatisticServiceProtocol {
         }
         set {
             storage.set(newValue, forKey: Keys.gamesCount.rawValue)
+        }
+    }
+    
+    var totalCorrect: Int {
+        get {
+            return storage.integer(forKey: Keys.totalCorrect.rawValue)
+        }
+        set {
+            storage.set(newValue, forKey: Keys.totalCorrect.rawValue)
+        }
+    }
+    
+    var totalQuestions: Int {
+        get {
+            return storage.integer(forKey: Keys.totalQuestions.rawValue)
+        }
+        set {
+            storage.set(newValue, forKey: Keys.totalQuestions.rawValue)
         }
     }
     
@@ -47,8 +60,16 @@ final class StatisticService: StatisticServiceProtocol {
         set { storage.set(newValue, forKey: Keys.totalAccuracy.rawValue) }
     }
     
+    var averageAccuracy: Double {
+        let totalQuestions = self.totalQuestions
+        guard totalQuestions > 0 else { return 0.0 }
+        return (Double(totalCorrect) / Double(totalQuestions)) * 100
+    }
+    
     func store(correct count: Int, total amount: Int) {
         gamesCount += 1
+        totalCorrect += count
+        totalQuestions += amount
         
         let currentGame = GameResult(correct: count, total: amount, date: Date())
         
@@ -60,18 +81,10 @@ final class StatisticService: StatisticServiceProtocol {
         let totalAccu = (totalAccuracy * Double(gamesCount - 1) + currentAccuracy) / Double(gamesCount)
         totalAccuracy = totalAccu * 100
         
-        let message = """
-            Количество сыгранных игр: \(gamesCount)
-            Лучшая игра:
-            Правильных ответов: \(bestGame.correct) из \(bestGame.total)
-            Точность: \(String(format: "%.2f", totalAccuracy))%
-            """
-        showMessageAlert(message)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy HH:mm"
+        _ = dateFormatter.string(from: currentGame.date)
+        
     }
     
-    private func showMessageAlert(_ message: String) {
-        let alert = UIAlertController(title: "Результаты игры", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ок", style: .default)
-        alert.addAction(action)
-    }
 }

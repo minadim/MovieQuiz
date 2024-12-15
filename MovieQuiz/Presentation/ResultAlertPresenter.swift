@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultAlertPresenter {
+final class ResultAlertPresenter {
     
     func showResultAlert(
         title: String,
