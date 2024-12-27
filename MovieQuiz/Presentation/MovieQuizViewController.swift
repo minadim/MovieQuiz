@@ -8,6 +8,8 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     @IBOutlet private var counterLabel: UILabel!
     @IBOutlet private var yesButton: UIButton!
     @IBOutlet private var noButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     private let statisticService: StatisticServiceProtocol = StatisticService()
     private let resultAlertPresenter = ResultAlertPresenter()
@@ -22,18 +24,19 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         super.viewDidLoad()
         setupUI()
         setupDependencies()
-        questionFactory.requestNextQuestion()
-    }
+        showLoadingIndicator()
+        questionFactory.loadData()    }
     
     private func setupUI() {
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = UIColor.clear.cgColor
+        activityIndicator.isHidden = true
     }
     
     private func setupDependencies() {
-        let questionFactory = QuestionFactory()
-        questionFactory.setup(delegate: self)
+        let moviesLoader = MoviesLoader()
+        let questionFactory = QuestionFactory(moviesLoader: moviesLoader, delegate: self)
         self.questionFactory = questionFactory
     }
     
@@ -49,8 +52,10 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         guard let question = question else { return }
         currentQuestion = question
         let viewModel = convert(model: question)
+        
         DispatchQueue.main.async { [weak self] in
             self?.show(viewModel)
+            self?.hideLoadingIndicator()
         }
     }
     
@@ -124,7 +129,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     }
     
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
-        let image = UIImage(named: model.image) ?? UIImage()
+        let image = UIImage(data: model.image) ?? UIImage()
         let questionText = model.text
         let questionNumber = "\(currentQuestionIndex + 1) / \(questionsAmount)"
         
@@ -149,4 +154,47 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         yesButton.isEnabled = isEnabled
         noButton.isEnabled = isEnabled
     }
+    // MARK: - Методы делегата QuestionFactoryDelegate
+    func didLoadDataFromServer() {
+        activityIndicator.isHidden = true
+        questionFactory?.requestNextQuestion()
+    }
+    
+    func didFailToLoadData(with error: Error) {
+        self.hideLoadingIndicator()
+        showNetworkError(message: error.localizedDescription)
+    }
+    
+    // MARK: - Функция для отображения ошибки сети
+    func showNetworkError(message: String) {
+        hideLoadingIndicator()
+        
+        let alertController = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
+        let retryAction = UIAlertAction(title: "Попробовать ещё раз", style: .default) { _ in
+            print("Попытка загрузки данных снова...")
+        }
+        alertController.addAction(retryAction)
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func showLoadingIndicator() {
+        DispatchQueue.main.async { [weak self] in
+            self?.activityIndicator.isHidden = false
+            self?.activityIndicator.startAnimating()
+            print("Индикатор загрузки показан")
+        }
+    }
+    
+    private func hideLoadingIndicator() {
+        DispatchQueue.main.async { [weak self] in
+            self?.activityIndicator.stopAnimating()
+            self?.activityIndicator.isHidden = true
+            print("Индикатор загрузки скрыт")
+        }
+    }
 }
+
