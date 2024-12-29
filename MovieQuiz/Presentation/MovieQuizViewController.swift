@@ -1,10 +1,6 @@
 import UIKit
 
 final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
-    func presentAlert(alert: UIAlertController) {
-    }
-    func didFailToLoadImage(with error: Error) {
-    }
     
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var textLabel: UILabel!

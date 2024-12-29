@@ -42,23 +42,21 @@ final class QuestionFactory: QuestionFactoryProtocol {
                     imageData = try Data(contentsOf: imageURL)
                 } catch {
                     DispatchQueue.main.async { [weak self] in
-                        guard let self = self else { return }
+                        guard self != nil else { return }
                         let alert = UIAlertController(title: "Ошибка",
                                                       message: "Не удалось загрузить изображение постера фильма.",
                                                       preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
-                        self.delegate?.presentAlert(alert: alert)
                     }
                     return
                 }
             } else {
                 DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
+                    guard self != nil else { return }
                     let alert = UIAlertController(title: "Ошибка",
                                                   message: "URL изображения фильма недействителен.",
                                                   preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
-                    self.delegate?.presentAlert(alert: alert)
                 }
                 return
             }
