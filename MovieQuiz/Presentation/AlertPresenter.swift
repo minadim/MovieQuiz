@@ -15,7 +15,6 @@ final class AlertPresenter {
         self.alertModel = alertModel
         self.viewController = viewController
     }
-    
     static func showAlert(on viewController: UIViewController,
                           withModel alertModel: AlertModel,
                           completion: (() -> Void)? = nil) {
@@ -24,11 +23,9 @@ final class AlertPresenter {
             message: alertModel.message,
             preferredStyle: .alert
         )
-        
         let action = UIAlertAction(title: "OK", style: .default, handler: { _ in
             completion?()
         })
-        
         alertController.addAction(action)
         viewController.present(alertController, animated: true, completion: nil)
     }
