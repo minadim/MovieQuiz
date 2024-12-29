@@ -5,10 +5,12 @@
 //  Created by Nadin on 05.12.2024.
 //
 
-import Foundation
+import UIKit
 
 protocol QuestionFactoryDelegate: AnyObject {
     func didReceiveNextQuestion(question: QuizQuestion?)
     func didLoadDataFromServer()
     func didFailToLoadData(with error: Error)
+    func didFailToLoadImage(with error: Error)
+    func presentAlert(alert: UIAlertController)
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol QuestionFactoryProtocol {
+protocol QuestionFactoryProtocol: AnyObject {
+    func loadData()
     func requestNextQuestion()
-    func loadData() 
     var delegate: QuestionFactoryDelegate? { get set }
 }

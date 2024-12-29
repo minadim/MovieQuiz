@@ -7,11 +7,11 @@
 
 import Foundation
 
-
 struct MostPopularMovie: Codable {
     let title: String
     let rating: String
     let imageURL: URL
+    let errorMessage: String?
     
     var resizedImageURL: URL {
         let urlString = imageURL.absoluteString
@@ -20,13 +20,12 @@ struct MostPopularMovie: Codable {
         guard let newURL = URL(string: imageUrlString) else {
             return imageURL
         }
-        
         return newURL
     }
-    
     private enum CodingKeys: String, CodingKey {
         case title = "fullTitle"
         case rating = "imDbRating"
         case imageURL = "image"
+        case errorMessage = "errorMessage"
     }
 }
