@@ -33,7 +33,6 @@
 		D5EB068A2D09D4FB00C7AA2D /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EB06892D09D4FB00C7AA2D /* GameResult.swift */; };
 		D5EB068C2D09D52100C7AA2D /* StatisticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EB068B2D09D52100C7AA2D /* StatisticService.swift */; };
 		D5EB068E2D0C8BE600C7AA2D /* ResultAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EB068D2D0C8BE500C7AA2D /* ResultAlertPresenter.swift */; };
-		D5FEA1E42D27E1B50028D298 /* StubNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FEA1E32D27E1B00028D298 /* StubNetworkClient.swift */; };
 		D5FEA1F52D2AC01F0028D298 /* MovieQuizPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FEA1F42D2AC0180028D298 /* MovieQuizPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +83,6 @@
 		D5EB068B2D09D52100C7AA2D /* StatisticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticService.swift; sourceTree = "<group>"; };
 		D5EB068D2D0C8BE500C7AA2D /* ResultAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAlertPresenter.swift; sourceTree = "<group>"; };
 		D5FEA1D42D26A4D60028D298 /* MovieQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5FEA1E32D27E1B00028D298 /* StubNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNetworkClient.swift; sourceTree = "<group>"; };
 		D5FEA1E92D2A89DA0028D298 /* MovieQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FEA1F42D2AC0180028D298 /* MovieQuizPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuizPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,7 +187,6 @@
 		D5EB06722CFF2FB000C7AA2D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D5FEA1E32D27E1B00028D298 /* StubNetworkClient.swift */,
 				D59D638A2D21BC170040F15A /* NetworkClient.swift */,
 				D59D63882D21BC120040F15A /* MoviesLoader.swift */,
 				D5EB06732CFF301A00C7AA2D /* QuestionFactory.swift */,
@@ -370,7 +367,6 @@
 				D5EB06832D063B4E00C7AA2D /* AlertPresenter.swift in Sources */,
 				D5EB06882D09CC6F00C7AA2D /* StatisticServiceProtocol.swift in Sources */,
 				D5EB06792CFF4BE000C7AA2D /* QuizResultsViewModel.swift in Sources */,
-				D5FEA1E42D27E1B50028D298 /* StubNetworkClient.swift in Sources */,
 				D5FEA1F52D2AC01F0028D298 /* MovieQuizPresenter.swift in Sources */,
 				D5EB068C2D09D52100C7AA2D /* StatisticService.swift in Sources */,
 				D5EB06742CFF301A00C7AA2D /* QuestionFactory.swift in Sources */,

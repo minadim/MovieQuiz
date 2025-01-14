@@ -85,10 +85,11 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
         currentQuestionIndex == questionsAmount - 1
     }
     func convert(model: QuizQuestion) -> QuizStepViewModel {
-        let image = UIImage(data: model.image) ?? UIImage()
-        let questionText = model.text
-        let questionNumber = "\(currentQuestionIndex + 1)/\(questionsAmount)"
-        return QuizStepViewModel(image: image, question: questionText, questionNumber: questionNumber)
+        return QuizStepViewModel(
+            image: UIImage(data: model.image) ?? UIImage(),
+            question: model.text,
+            questionNumber: "\(currentQuestionIndex + 1)/\(questionsAmount)"
+        )
     }
     func restartGame() {
         currentQuestionIndex = 0
