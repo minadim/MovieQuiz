@@ -7,8 +7,14 @@
 
 import UIKit
 
- struct QuizQuestion {
-    let image: Data
-    let text: String
-    let correctAnswer: Bool
+public struct QuizQuestion {
+    public let image: Data
+    public let text: String
+    public let correctAnswer: Bool
+    
+    public init(image: Data, text: String, correctAnswer: Bool) {
+        self.image = image
+        self.text = text
+        self.correctAnswer = correctAnswer
+    }
 }
