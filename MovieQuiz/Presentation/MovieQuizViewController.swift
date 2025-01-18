@@ -46,6 +46,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
             self?.presenter.restartGame()
         }
         alert.addAction(action)
+        alert.view.accessibilityIdentifier = "Game results"   
         present(alert, animated: true)
     }
     func showNetworkError(message: String) {
