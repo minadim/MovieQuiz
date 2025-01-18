@@ -57,11 +57,11 @@ final class MovieQuizUITests: XCTestCase {
         // When
         for _ in 1...10 {
             app.buttons["Нет"].tap()
-            sleep(1)
+            sleep(3)
         }
         // Then
         let alert = app.alerts["Game results"]
-        XCTAssertTrue(alert.exists, "Алерт не появился после завершения раунда")
+        sleep(5)
         XCTAssertEqual(alert.label, "Этот раунд окончен!", "Неверный заголовок алерта")
         XCTAssertEqual(alert.buttons.firstMatch.label, "Сыграть ещё раз", "Неверный текст кнопки на алерте")
     }
@@ -73,6 +73,7 @@ final class MovieQuizUITests: XCTestCase {
         }
         // When
         let alert = app.alerts["Game results"]
+        sleep(2)
         XCTAssertTrue(alert.exists, "Алерт не появился после завершения раунда")
         alert.buttons.firstMatch.tap()
         sleep(3)

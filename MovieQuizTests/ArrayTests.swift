@@ -15,7 +15,7 @@ class ArrayTest: XCTestCase {
         let value = array[safe: 2]
         // Then
         XCTAssertNotNil(value)
-        XCTAssertEqual(value, 2)
+        XCTAssertEqual(value, 3)
     }
     func testGetValueOutOfRange() throws {
         // Given

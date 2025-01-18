@@ -22,6 +22,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         imageView.layer.borderColor = UIColor.clear.cgColor
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = UIColor.green
+        counterLabel.accessibilityIdentifier = "Index"
     }
     @IBAction private func yesButtonClicked(_ sender: UIButton) {
         presenter.yesButtonClicked()
@@ -46,7 +47,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
             self?.presenter.restartGame()
         }
         alert.addAction(action)
-        alert.view.accessibilityIdentifier = "Game results"   
+        alert.view.accessibilityIdentifier = "Game results"
         present(alert, animated: true)
     }
     func showNetworkError(message: String) {
