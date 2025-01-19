@@ -1,8 +1,9 @@
+
 import UIKit
 
 final class StatisticService: StatisticServiceProtocol {
     
-    private let storage: UserDefaults = .standard    
+    private let storage: UserDefaults = .standard
     private enum Keys: String {
         case gamesCount
         case totalCorrect
@@ -72,7 +73,5 @@ final class StatisticService: StatisticServiceProtocol {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yy HH:mm"
         _ = dateFormatter.string(from: currentGame.date)
-        
     }
-    
 }
