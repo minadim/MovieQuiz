@@ -5,6 +5,7 @@
 //  Created by Nadin on 05.12.2024.
 //
 
+
 import Foundation
 
 protocol QuestionFactoryProtocol: AnyObject {

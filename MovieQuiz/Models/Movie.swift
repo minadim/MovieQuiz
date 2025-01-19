@@ -5,6 +5,7 @@
 //  Created by Nadin on 29.12.2024.
 //
 
+
 import Foundation
 
 struct Movie: Decodable {
