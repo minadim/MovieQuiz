@@ -5,9 +5,13 @@
 //  Created by Nadin on 26.12.2024.
 //
 
+
 import Foundation
 
-struct NetworkClient {
+protocol NetworkRouting {
+    func fetch(url: URL, handler: @escaping (Result<Data, Error>) -> Void) 
+}
+struct NetworkClient: NetworkRouting {
     
     private enum NetworkError: Error {
         case codeError
